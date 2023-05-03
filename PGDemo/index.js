@@ -57,8 +57,6 @@ app.get("/createdata", (req, res) => {
     // tell database to run our query
     conn.query(query)
     .then(data => {
-        console.log(data);
-        console.log(data.rows[0]);
         res.redirect("/form");
     })
     .catch(err => res.send(`Error: ${err}`));
@@ -69,7 +67,6 @@ app.get("/home", (req, res) => {
                 FROM todos;`
     conn.query(query)
     .then(data => {
-        console.log(data);
         res.render("home.ejs", {data: data.rows})
     })
     .catch(err => res.send(`Error reading data: ${err}`));
