@@ -1,3 +1,6 @@
+// put this at the top for environment variables (confidential info)
+require("dotenv").config();
+
 // use express
 const express = require("express");
 const app = express();
@@ -12,6 +15,8 @@ app.use(logger("dev"));
 // access public folder
 app.use(express.static("public"));
 
+console.log(process.env);
+
 // route handlers
 app.get("/", (req, res) => {
     res.redirect("/home");
@@ -25,3 +30,7 @@ app.get("/home", (req, res) => {
 app.listen(port, () => {
     console.log(`PGDemo on port ${port}`);
 })
+
+// npm i pg
+// npm i dotenv
+
