@@ -59,10 +59,21 @@ app.get("/createdata", (req, res) => {
     .then(data => {
         console.log(data);
         console.log(data.rows[0]);
-        res.end();
+        res.redirect("/form");
     })
-    .catch(err => res.send(`Error: `, err));
-})   
+    .catch(err => res.send(`Error: ${err}`));
+})  
+
+app.get("/home", (req, res) => {
+    let query = `SELECT *
+                FROM todos;`
+    conn.query(query)
+    .then(data => {
+        console.log(data);
+        res.render("home.ejs", {data: data.rows})
+    })
+    .catch(err => res.send(`Error reading data: ${err}`));
+})
     
 // listener
 app.listen(port, () => {
