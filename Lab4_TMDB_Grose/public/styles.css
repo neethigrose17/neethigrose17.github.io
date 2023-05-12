@@ -1,0 +1,56 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 45%;
+  }
+  
+/* For some reason, I had to add the padding to the landing_body itself to see the h1 on this page   */
+#landing_body {
+    background: cyan url("/images/popcorn-g861c44520_1280.jpg") no-repeat fixed center;
+    background-size: cover;
+    padding: 50px;
+}
+
+p.title {
+  font-weight: bold;
+}
+
+p.bottom {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
+
+body#results, body#error {
+  background-color: #c6f7c6;
+}
+
+body#error {
+  background: url("/images/error.jpg") no-repeat fixed center;
+  background-size: cover;
+  color: white;
+}
+
+/* This is how I made the tiled movie cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 15px;
+}
+
+.card {
+  margin: 15px;
+}
+
+/* I needed the padding here for the headings to show up under the navbar after I fixed the navbar to the top */
+#results h1 {
+  padding-top: 55px;
+  text-align: center;
+  margin: 10px;
+}
+
+#error h1 {
+  padding-top: 55px;
+  text-align: left;
+  color: white;
+}

@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+  <body id="results">
+    <h1>Movie Results</h1>
+<!-- https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg -->
+
+    <% let baseURL = "https://image.tmdb.org/t/p/w200" %>
+
+    <!-- putting it in a card container allows me to create a tiled layout -->
+    <div class="card-container">
+        <!-- loop to display movie posters and descriptions -->
+        <% display.forEach(el => { %>
+            <!-- I had to declare endpoint outside the if statement, otherwise it is out of scope for when I use it for the image -->
+            <% let endpoint; %>
+            <% if (el.poster_path !== null) { %>
+            <%    endpoint = `${baseURL}${el.poster_path}` %>
+            <% } else { %>
+                <!-- This is my placeholder picture if there is no movie poster -->
+            <%    endpoint = "images/movie_dog.png" } %>
+            <div class="card" style="width: 18rem;">
+                <img src="<%= endpoint %>" class="card-img-top" alt="<%= el.title %>">
+                <div class="card-body">
+                  <p class="card-text"><%= el.title %></p>
+                  <p class="card-text"><%= el.overview %></p>
+                  <p class="card-text">Rating: <%= el.vote_average %></p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+<%- include("partials/footer") %>
